@@ -1,0 +1,46 @@
+// Mixins
+@mixin flexDirection($direction, $justify, $align) {
+	display: flex;
+	flex-direction: $direction;
+	justify-content: $justify;
+	align-items: $align;
+}
+
+// colors
+$white: #ffffff; // job card light mode,searc bar background light mode
+
+.header {
+	background: url("../assets/mobile/bg-pattern-header.svg");
+	padding: 32px 24px 72px;
+	@include flexDirection(row, space-between, center);
+}
+
+.mode {
+	// outline: 2px solid red;
+	@include flexDirection(row, center, center);
+}
+.radios {
+	margin: 0 16px;
+	background: $white;
+	width: 48px;
+	height: 24px;
+	border-radius: 15px;
+	padding: 0 5px;
+	@include flexDirection(row, space-between, center);
+}
+
+#radio {
+	// removes the appearance of the radio
+	appearance: none;
+	border: none;
+	// adding inset box shadow to cover the radio element , it can be styled
+	box-shadow: 0 0 0 1px #5964e0;
+	border-radius: 50%;
+	width: 12px;
+	height: 12px;
+	transition: all ease-in 0.2s;
+}
+// change background of radio when checked
+#radio:checked {
+	background-color: #5964e0;
+}
