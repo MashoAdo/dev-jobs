@@ -1,0 +1,164 @@
+// mixins
+@mixin flexDirection($direction, $justify, $align) {
+	display: flex;
+	flex-direction: $direction;
+	justify-content: $justify;
+	align-items: $align;
+}
+
+// element styles
+header {
+	position: relative;
+}
+.search-container {
+	margin: 0 24px;
+}
+
+.overlay {
+	position: fixed;
+	top: 0;
+	left: 0;
+	bottom: 0;
+	right: 0;
+	transform: scale(0);
+	opacity: 0.4;
+	pointer-events: all;
+	background-color: hsl(0, 1%, 74%);
+}
+.active {
+	transform: scale(1);
+}
+
+.search-wrapper {
+	position: absolute;
+	left: 0;
+	right: 0;
+	margin: 0 24px;
+	top: 96px;
+	border-radius: 5px;
+	@include flexDirection(row, space-between, center);
+	padding: 10px 24px;
+	transition: ease-in 0.3s;
+
+	div {
+		// border: 2px solid red;
+		@include flexDirection(row, space-between, center);
+	}
+}
+
+.search-wrapper-light {
+	background-color: #ffffff;
+}
+
+.search-wrapper-dark {
+	background-color: #19202d;
+}
+
+.filter-icon {
+	margin-right: 20px;
+}
+
+.search-input,
+.location-input {
+	border: none;
+	outline: none;
+	font-family: "Poppins", sans-serif;
+	font-weight: 400;
+	color: #19202d;
+	opacity: 0.8;
+	font-size: 14px;
+	line-height: 20px;
+	transition: ease-in 0.3s;
+}
+
+.input-light {
+	background-color: #ffffff;
+}
+.input-dark {
+	background-color: #19202d;
+}
+
+.filter-container {
+	position: absolute;
+	left: 0px;
+	right: 0;
+	top: 225px;
+	margin: 0 24px;
+	transform: scale(0);
+	transition: all ease-in 0.2s;
+}
+
+.show-container {
+	transform: scale(1);
+}
+
+.filter-wrapper {
+	background-color: #ffffff;
+	display: flex;
+	flex-direction: column;
+	@include flexDirection(column, inherit, inherit);
+	border-radius: 5px;
+	transition: ease-in 0.3s;
+
+	.fulltime {
+		font-size: 14px;
+		line-height: 20px;
+		font-weight: 700;
+		color: #19202d;
+	}
+}
+
+.filter-wrapper-dark {
+	background-color: #19202d;
+
+	.fulltime {
+		color: #ffffff;
+	}
+}
+
+.location-wrapper {
+	@include flexDirection(row, inherit, inherit);
+	padding: 24px;
+	border-bottom: 1px solid #f4f6f8;
+	transition: ease-in 0.3s;
+
+	input {
+		margin-left: 16px;
+	}
+}
+
+.location-wrapper-dark {
+	border-color: #5b5f63;
+}
+
+.cotract-checkbox {
+	padding: 24px;
+	@include flexDirection(row, inherit, inherit);
+	.checkbox {
+		margin-right: 16px;
+		width: 20px;
+		height: 20px;
+	}
+
+	label {
+		font-weight: 700;
+		font-size: 14px;
+		line-height: 20px;
+		color: #1f2530;
+	}
+}
+
+.search-button {
+	margin: 0 24px 24px;
+	background-color: #5964e0;
+	border: none;
+	border-radius: 5px;
+	outline: none;
+	padding: 16px 0;
+	font-family: "Poppins", sans-serif;
+	font-style: normal;
+	font-size: 16px;
+	line-height: 20px;
+	text-align: center;
+	color: #ffffff;
+}
