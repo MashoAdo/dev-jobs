@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 
 // styles
 import "../styles/Header.css";
@@ -6,43 +6,41 @@ import "../styles/Header.css";
 import { ReactComponent as Logo } from "../assets/desktop/logo.svg";
 import { ReactComponent as Sun } from "../assets/desktop/icon-sun.svg";
 import { ReactComponent as Moon } from "../assets/desktop/icon-moon.svg";
+import Search from "./Search";
 
-function Header() {
-	const [value, setValue] = useState("light");
-
-	const handleChange = (e) => {
-		setValue(e.target.value);
-	};
-
-	console.log(value);
+function Header({ isDark, handleSetMode }) {
 	return (
-		<div className="header">
-			<Logo />
+		<header>
+			<div className="header">
+				<Logo />
 
-			<div className="mode">
-				<Sun />
-				<div className="radios">
-					<input
-						id="radio"
-						type="radio"
-						value="light"
-						name="mode"
-						checked={value === "light"}
-						onChange={handleChange}
-					/>
+				<div className="mode">
+					<Sun />
+					<div className="radios">
+						<input
+							id="radio"
+							type="radio"
+							value="light"
+							name="mode"
+							checked={isDark === false}
+							onChange={handleSetMode}
+						/>
 
-					<input
-						id="radio"
-						type="radio"
-						value="dark"
-						name="mode"
-						checked={value === "dark"}
-						onChange={handleChange}
-					/>
+						<input
+							id="radio"
+							type="radio"
+							value="dark"
+							name="mode"
+							checked={isDark === true}
+							onChange={handleSetMode}
+						/>
+					</div>
+					<Moon />
 				</div>
-				<Moon />
 			</div>
-		</div>
+
+			<Search isDark={isDark} />
+		</header>
 	);
 }
 
