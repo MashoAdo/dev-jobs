@@ -22,7 +22,7 @@ $white: #ffffff; // job card light mode,searc bar background light mode
 .radios {
 	margin: 0 16px;
 	background: $white;
-	width: 48px;
+	width: 58px;
 	height: 24px;
 	border-radius: 15px;
 	padding: 0 5px;
@@ -36,9 +36,9 @@ $white: #ffffff; // job card light mode,searc bar background light mode
 	// adding inset box shadow to cover the radio element , it can be styled
 	box-shadow: 0 0 0 1px #5964e0;
 	border-radius: 50%;
-	width: 12px;
-	height: 12px;
-	transition: all ease-in 0.2s;
+	width: 14px;
+	height: 14px;
+	transition: all ease-in 0.3s;
 }
 // change background of radio when checked
 #radio:checked {
