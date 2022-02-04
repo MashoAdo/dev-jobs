@@ -1,0 +1,71 @@
+// mixins
+@mixin flexDirection($direction, $justify, $align) {
+	display: flex;
+	flex-direction: $direction;
+	justify-content: $justify;
+	align-items: $align;
+}
+// colors
+$white: #ffffff;
+
+.jobs-container {
+	margin: 72px 24px 32px;
+	display: grid;
+	gap: 50px;
+}
+
+.job-card {
+	background-color: $white;
+	position: relative;
+	padding: 49px 32px 32px;
+	border-radius: 5px;
+}
+
+.job-card-icon {
+	position: absolute;
+	left: 32px;
+	top: -25px;
+	width: 50px;
+	height: 50px;
+	border-radius: 15px;
+	@include flexDirection(row, center, center);
+}
+
+.time-contract {
+	font-weight: normal;
+	font-size: 16px;
+	line-height: 20px;
+	color: #6e8098;
+	margin-bottom: 10px;
+
+	.contract {
+		margin-left: 16px;
+	}
+}
+
+.job-title-wrapper {
+	margin-bottom: 10px;
+}
+
+.job-title {
+	font-weight: 700;
+	font-size: 16px;
+	line-height: 25px;
+	color: #19202d;
+}
+
+.company-name {
+	margin-top: 16px;
+	font-weight: normal;
+	font-size: 16px;
+	line-height: 20px;
+	color: #6e8098;
+}
+
+.country {
+	margin-top: 44px;
+	font-weight: bold;
+	font-size: 14px;
+	line-height: 17px;
+	color: #5964e0;
+}
