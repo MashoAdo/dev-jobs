@@ -6,7 +6,6 @@ import "../styles/Header.css";
 import { ReactComponent as Logo } from "../assets/desktop/logo.svg";
 import { ReactComponent as Sun } from "../assets/desktop/icon-sun.svg";
 import { ReactComponent as Moon } from "../assets/desktop/icon-moon.svg";
-import Search from "./Search";
 
 function Header({ isDark, handleSetMode }) {
 	return (
@@ -38,8 +37,6 @@ function Header({ isDark, handleSetMode }) {
 					<Moon />
 				</div>
 			</div>
-
-			<Search isDark={isDark} />
 		</header>
 	);
 }

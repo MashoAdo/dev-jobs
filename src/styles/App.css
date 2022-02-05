@@ -1,0 +1,9 @@
+.app {
+	height: 100%;
+	transition: all ease-in 0.3s;
+	background-color: #f4f6f8;
+}
+
+.dark {
+	background-color: #121721;
+}

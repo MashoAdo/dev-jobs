@@ -7,9 +7,10 @@
 }
 // colors
 $white: #ffffff;
+$very-dark-blue: #19202d; //search bar background dark mode, job card dark mode
 
 .jobs-container {
-	margin: 72px 24px 32px;
+	margin: 72px 24px 0;
 	display: grid;
 	gap: 50px;
 }
@@ -19,6 +20,23 @@ $white: #ffffff;
 	position: relative;
 	padding: 49px 32px 32px;
 	border-radius: 5px;
+	transition: all ease-in 0.3s;
+
+	.job-title {
+		font-weight: 700;
+		font-size: 16px;
+		line-height: 25px;
+		color: #19202d;
+		transition: all ease-in 0.3s;
+	}
+}
+
+.job-card-dark {
+	background-color: $very-dark-blue;
+
+	.job-title {
+		color: $white;
+	}
 }
 
 .job-card-icon {
@@ -45,13 +63,6 @@ $white: #ffffff;
 
 .job-title-wrapper {
 	margin-bottom: 10px;
-}
-
-.job-title {
-	font-weight: 700;
-	font-size: 16px;
-	line-height: 25px;
-	color: #19202d;
 }
 
 .company-name {

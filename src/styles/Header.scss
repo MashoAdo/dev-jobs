@@ -6,8 +6,10 @@
 	align-items: $align;
 }
 
-// colors
-$white: #ffffff; // job card light mode,searc bar background light mode
+//Colors
+$violet: #5964e0; //counry, button, radio
+$light-violet: #939bf4; //button/radios hovers
+$white: #ffffff; // job card light mode,search bar background light mode
 
 .header {
 	background: url("../assets/mobile/bg-pattern-header.svg");
@@ -34,7 +36,7 @@ $white: #ffffff; // job card light mode,searc bar background light mode
 	appearance: none;
 	border: none;
 	// adding inset box shadow to cover the radio element , it can be styled
-	box-shadow: 0 0 0 1px #5964e0;
+	box-shadow: 0 0 0 1px $violet;
 	border-radius: 50%;
 	width: 14px;
 	height: 14px;
@@ -42,5 +44,9 @@ $white: #ffffff; // job card light mode,searc bar background light mode
 }
 // change background of radio when checked
 #radio:checked {
-	background-color: #5964e0;
+	background-color: $violet;
+
+	&:hover {
+		background-color: $light-violet;
+	}
 }

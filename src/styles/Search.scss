@@ -1,3 +1,13 @@
+//Colors
+$violet: #5964e0; //counry, button, radio
+$light-violet: #939bf4; //button/radios hovers
+$very-dark-blue: #19202d; //search bar background dark mode, job card dark mode
+$midnight: #121721; //body dark mode
+$white: #ffffff; // job card light mode,search bar background light mode
+$light-gray: #f4f6f8; // body light mode
+$gray: #9daec2; //time, contract, company , button light mode, button hover dark mode
+$dark-gray: #6e8098; //button dark mode
+
 // mixins
 @mixin flexDirection($direction, $justify, $align) {
 	display: flex;
@@ -10,6 +20,7 @@
 header {
 	position: relative;
 }
+
 .search-container {
 	margin: 0 24px;
 }
@@ -23,7 +34,7 @@ header {
 	transform: scale(0);
 	opacity: 0.4;
 	pointer-events: all;
-	background-color: hsl(0, 1%, 74%);
+	background-color: #000000;
 	z-index: 5;
 	transition: ease-in 0.3s;
 }
@@ -68,10 +79,13 @@ header {
 	font-family: "Poppins", sans-serif;
 	font-weight: 400;
 	color: #19202d;
-	opacity: 0.8;
 	font-size: 14px;
 	line-height: 20px;
 	transition: ease-in 0.3s;
+
+	&::placeholder {
+		color: $dark-gray;
+	}
 }
 
 .input-light {

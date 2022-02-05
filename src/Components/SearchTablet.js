@@ -11,9 +11,9 @@ import { ReactComponent as LocationIcon } from "../assets/desktop/icon-location.
 function Search({ isDark }) {
 	const [show, setShow] = useState(false);
 
-	const toggleFilter = () => {
-		setShow(!show);
-	};
+	// const toggleFilter = () => {
+	// 	setShow(!show);
+	// };
 
 	const removeShow = () => {
 		setShow(false);
@@ -42,7 +42,6 @@ function Search({ isDark }) {
 				/>
 
 				<div>
-					<FilterIcon className="filter-icon" onClick={toggleFilter} />
 					<SearchIcon className="search-icon" />
 				</div>
 			</div>

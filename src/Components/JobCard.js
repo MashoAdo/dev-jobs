@@ -1,18 +1,21 @@
-import React from "react";
+import React, { useContext } from "react";
 
 // styles
 import "../styles/JobsContainer.css";
 // data
 import data from "../data.json";
+// context provider
+import { isDarkContext } from "../App";
 
 // icons
 import { ReactComponent as Scoot } from "../assets/logos/scoot.svg";
 
 function JobCard() {
+	const isDark = useContext(isDarkContext);
 	const jobOne = data[0];
 
 	return (
-		<article className="job-card">
+		<article className={isDark ? "job-card job-card-dark" : "job-card"}>
 			<div
 				className="job-card-icon"
 				style={{ backgroundColor: jobOne.logoBackground }}
