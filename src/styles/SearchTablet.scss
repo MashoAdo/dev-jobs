@@ -20,7 +20,7 @@ $dark-gray: #6e8098; //button dark mode
 	margin: 0 39.5px;
 	border-radius: 15px;
 	transition: ease-in 0.3s;
-	display: none;
+	// background-color: $very-dark-blue;
 }
 
 // dark mode
@@ -84,21 +84,21 @@ $dark-gray: #6e8098; //button dark mode
 	flex-direction: row;
 	justify-content: center;
 	align-items: center;
-	label {
+	.full-time-label {
 		margin: 0 20px 0 10px;
-		color: yellow;
-		font-size: 14px;
 		font-weight: 700;
+		color: $midnight;
+		font-size: 14px;
+		transition: ease-in 0.3s;
 	}
 }
 
 // dark mode
-.checkbox-search-btn {
-	label {
+.checkbox-search-btn-dark {
+	.full-time-label {
 		color: $white;
 	}
 }
-
 .only {
 	display: none;
 }
