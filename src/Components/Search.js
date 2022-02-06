@@ -8,8 +8,9 @@ import { ReactComponent as SearchIcon } from "../assets/desktop/icon-search-whit
 import { ReactComponent as SearchIconTablet } from "../assets/desktop/icon-search.svg";
 import { ReactComponent as LocationIcon } from "../assets/desktop/icon-location.svg";
 
-function Search({ isDark }) {
+function Search({ isDark, handleClick, handleChange }) {
 	const [show, setShow] = useState(false);
+	const [searchTerm, setSearchTerm] = useState("");
 
 	const toggleFilter = () => {
 		setShow(!show);
@@ -17,6 +18,11 @@ function Search({ isDark }) {
 
 	const removeShow = () => {
 		setShow(false);
+	};
+
+	const handleSearch = () => {
+		handleClick();
+		removeShow();
 	};
 
 	return (
@@ -39,11 +45,12 @@ function Search({ isDark }) {
 					type="text"
 					name="title"
 					placeholder="Filter by title..."
+					onChange={handleChange}
 				/>
 
 				<div>
 					<FilterIcon className="filter-icon" onClick={toggleFilter} />
-					<SearchIcon className="search-icon" />
+					<SearchIcon className="search-icon" onClick={handleClick} />
 				</div>
 			</div>
 
@@ -74,6 +81,7 @@ function Search({ isDark }) {
 							type="text"
 							name="location"
 							placeholder="Filter by location..."
+							onChange={handleChange}
 						/>
 					</div>
 
@@ -82,12 +90,15 @@ function Search({ isDark }) {
 							className="checkbox"
 							type="checkbox"
 							name="contract"
-							// value="full time only"
+							value="full time"
+							onChange={handleChange}
 						/>
 						<label className="fulltime">Full Time Only</label>
 					</div>
 
-					<button className="search-button">Search</button>
+					<button className="search-button" onClick={handleSearch}>
+						Search
+					</button>
 				</div>
 			</div>
 		</div>
