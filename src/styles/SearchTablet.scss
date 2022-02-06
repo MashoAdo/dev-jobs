@@ -21,6 +21,7 @@ $dark-gray: #6e8098; //button dark mode
 	border-radius: 15px;
 	transition: ease-in 0.3s;
 	// background-color: $very-dark-blue;
+	display: none;
 }
 
 // dark mode
@@ -60,7 +61,7 @@ $dark-gray: #6e8098; //button dark mode
 
 // dark mode
 .search-tablet-dark {
-	border-right: 2px solid $dark-gray;
+	border-right: 2px solid $midnight;
 }
 
 .location-tablet {
@@ -75,7 +76,7 @@ $dark-gray: #6e8098; //button dark mode
 
 // dark mode
 .location-tablet-dark {
-	border-right: 2px solid $dark-gray;
+	border-right: 2px solid $midnight;
 }
 
 .checkbox-search-btn {
