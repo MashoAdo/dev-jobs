@@ -10,7 +10,6 @@ import { ReactComponent as LocationIcon } from "../assets/desktop/icon-location.
 
 function Search({ isDark, handleClick, handleChange }) {
 	const [show, setShow] = useState(false);
-	const [searchTerm, setSearchTerm] = useState("");
 
 	const toggleFilter = () => {
 		setShow(!show);
