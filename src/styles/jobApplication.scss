@@ -1,0 +1,352 @@
+//Colors
+$violet: #5964e0; //counry, button, radio
+$light-violet: #939bf4; //button/radios hovers
+$very-dark-blue: #19202d; //search bar background dark mode, job card dark mode
+$midnight: #121721; //body dark mode
+$white: #ffffff; // job card light mode,search bar background light mode
+$light-gray: #f4f6f8; // body light mode
+$gray: #9daec2; //time, contract, company , button light mode, button hover dark mode
+$dark-gray: #6e8098; //button dark mode
+
+@mixin flexDirection($direction, $justify, $align) {
+	display: flex;
+	flex-direction: $direction;
+	justify-content: $justify;
+	align-items: $align;
+}
+
+// transition
+$transition: all ease-in 0.3s;
+
+// header
+.icon {
+	height: 50px;
+	width: 50px;
+	background-color: yellow;
+	position: relative;
+	top: -25px;
+}
+
+.job-application-header {
+	position: absolute;
+	left: 0;
+	right: 0;
+	top: 96px;
+	background-color: $white;
+	border-radius: 5px;
+	margin: 0 24px;
+	text-align: center;
+	transition: $transition;
+	@include flexDirection(column, center, center);
+}
+
+// dark
+.job-application-header-dark {
+	background-color: $very-dark-blue;
+}
+
+.company-info {
+	margin: 0 0 24px;
+
+	h2 {
+		font-weight: bold;
+		font-size: 20px;
+		line-height: 25px;
+		color: $very-dark-blue;
+		transition: $transition;
+	}
+}
+
+// dark
+.company-info-dark {
+	h2 {
+		color: $white;
+	}
+}
+.company-link {
+	display: inline-block;
+	margin-top: 5px;
+	color: $gray;
+}
+
+.company-link-btn {
+	margin-bottom: 32px;
+	padding: 16px 20px;
+	background-color: #e3e6ff;
+
+	font-size: 700;
+	color: $violet;
+	border-radius: 5px;
+	transition: $transition;
+
+	&:hover {
+		background-color: #c6cbfc;
+	}
+}
+
+// dark
+.company-link-btn-dark {
+	background-color: $dark-gray;
+	color: $white;
+
+	&:hover {
+		background-color: $gray;
+	}
+}
+
+// main
+main {
+	margin: 214px 24px 64px;
+	padding: 40px 24px;
+	background-color: $white;
+	transition: $transition;
+}
+
+// main dark
+.main-dark {
+	background-color: $very-dark-blue;
+}
+
+.time-contract {
+	font-size: 14px;
+}
+
+.job-info-apply-contract {
+	margin-left: 12px;
+}
+
+.job-info-title {
+	font-weight: bold;
+	font-size: 20px;
+	line-height: 25px;
+	color: $very-dark-blue;
+	transition: $transition;
+}
+
+//dark
+.job-info-title-dark {
+	color: $white;
+}
+
+.country-info {
+	color: $violet;
+	font-weight: 500;
+	font-size: 12px;
+	line-height: 17px;
+	margin-top: 12px;
+	display: inline-block;
+}
+
+.job-info-apply-button {
+	display: inline-block;
+	margin: 50px 0 32px;
+	font-weight: 700;
+	font-size: 14px;
+	line-height: 20px;
+	text-align: center;
+	color: $white;
+	width: 100%;
+	background-color: $violet;
+	padding: 16px 0;
+	border-radius: 5px;
+	transition: $transition;
+
+	&:hover {
+		background-color: $light-violet;
+	}
+}
+
+.description {
+	font-style: normal;
+	font-weight: normal;
+	font-size: 14px;
+	line-height: 26px;
+	color: $dark-gray;
+
+	margin-bottom: 40px;
+}
+
+.requirements,
+.duties {
+	h2 {
+		font-style: normal;
+		font-weight: bold;
+		font-size: 18px;
+		line-height: 25px;
+		color: $very-dark-blue;
+		margin-bottom: 28px;
+		transition: $transition;
+	}
+
+	p,
+	ul {
+		font-style: normal;
+		font-weight: normal;
+		font-size: 14px;
+		line-height: 26px;
+		color: $dark-gray;
+		margin-bottom: 40px;
+	}
+}
+
+// dark
+.requirements-dark,
+.duties-dark {
+	h2 {
+		color: $white;
+	}
+}
+
+// create custom numbering of ordered list
+.duties-ordered-list {
+	list-style: none;
+	counter-reset: item;
+	li {
+		counter-increment: item;
+		font-style: normal;
+		font-weight: normal;
+		font-size: 14px;
+		line-height: 26px;
+		color: $dark-gray;
+	}
+
+	::before {
+		content: counter(item);
+		color: $violet;
+		margin-right: 15px;
+	}
+}
+
+// footer
+
+.footer {
+	background-color: $white;
+	padding: 24px;
+	transition: $transition;
+}
+
+// dark
+.footer-dark {
+	background-color: $very-dark-blue;
+}
+.footer-button {
+	display: inline-block;
+	font-weight: 700;
+	font-size: 14px;
+	line-height: 20px;
+	text-align: center;
+	color: $white;
+	width: 100%;
+	background-color: $violet;
+	padding: 16px 0;
+	border-radius: 5px;
+	transition: $transition;
+
+	&:hover {
+		background-color: $light-violet;
+	}
+}
+
+.footer-title {
+	display: none;
+}
+
+@media screen and (min-width: 700px) {
+	// header
+	.icon {
+		top: 0;
+		bottom: 0;
+		left: 0;
+		height: 140px;
+		width: 140px;
+	}
+	.job-application-header {
+		margin: 0 40px;
+		@include flexDirection(row, inherit, center);
+	}
+
+	.company-info {
+		margin: 42px 40px;
+	}
+
+	.company-link-btn {
+		position: absolute;
+		top: 42px;
+		right: 40px;
+	}
+
+	// main section
+	main {
+		margin: 132px 40px 64px;
+		padding: 40px 48px;
+	}
+
+	.job-info-apply {
+		@include flexDirection(row, space-between, center);
+	}
+
+	.job-info-apply-button {
+		width: 141px;
+		height: 48px;
+		margin: 0;
+	}
+
+	.description {
+		margin: 40px 0;
+	}
+
+	// footer
+	.footer {
+		@include flexDirection(row, space-between, center);
+		padding: 40px;
+	}
+	.footer-title {
+		display: inline-block;
+
+		h2 {
+			font-weight: bold;
+			font-size: 20px;
+			line-height: 25px;
+			color: $very-dark-blue;
+			transition: $transition;
+		}
+
+		span {
+			display: inline-block;
+			margin-top: 5px;
+			color: $gray;
+		}
+	}
+
+	// dark
+	.footer-title-dark {
+		h2 {
+			color: $white;
+		}
+	}
+
+	.footer-button {
+		width: 141px;
+		height: 48px;
+	}
+
+	.footer-title-dark {
+		h2 {
+			color: $white;
+		}
+	}
+}
+
+@media screen and (min-width: 1200px) {
+	.job-application-header {
+		margin: 0 250px;
+	}
+
+	main {
+		margin: 132px 250px 80px;
+	}
+
+	.footer {
+		padding: 40px 250px;
+	}
+}
