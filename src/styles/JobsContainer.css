@@ -1,0 +1,116 @@
+.jobs-container {
+  margin: 72px 24px 0;
+  display: -ms-grid;
+  display: grid;
+  gap: 50px;
+}
+
+.job-card {
+  background-color: #ffffff;
+  position: relative;
+  padding: 49px 32px 32px;
+  border-radius: 5px;
+  -webkit-transition: all ease-in 0.3s;
+  transition: all ease-in 0.3s;
+}
+
+.job-card .job-title {
+  font-weight: 700;
+  font-size: 16px;
+  line-height: 25px;
+  color: #19202d;
+  -webkit-transition: all ease-in 0.3s;
+  transition: all ease-in 0.3s;
+}
+
+.job-card-dark {
+  background-color: #19202d;
+}
+
+.job-card-dark .job-title {
+  color: #ffffff;
+}
+
+.job-card-icon {
+  position: absolute;
+  left: 32px;
+  top: -25px;
+  width: 50px;
+  height: 50px;
+  border-radius: 15px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.time-contract {
+  font-weight: normal;
+  font-size: 16px;
+  line-height: 20px;
+  color: #6e8098;
+  margin-bottom: 10px;
+}
+
+.time-contract .contract {
+  margin-left: 16px;
+}
+
+.job-title-wrapper {
+  margin-bottom: 10px;
+}
+
+.company-name {
+  margin-top: 16px;
+  font-weight: normal;
+  font-size: 16px;
+  line-height: 20px;
+  color: #6e8098;
+}
+
+.country {
+  margin-top: 44px;
+  font-weight: bold;
+  font-size: 14px;
+  line-height: 17px;
+  color: #5964e0;
+}
+
+@media screen and (min-width: 650px) {
+  .jobs-container {
+    margin: 72px 39.5px 0;
+    display: -ms-grid;
+    display: grid;
+    -ms-grid-columns: (1fr)[2];
+        grid-template-columns: repeat(2, 1fr);
+    grid-column-gap: 20px;
+    grid-row-gap: 40px;
+  }
+}
+
+@media screen and (min-width: 900px) {
+  .jobs-container {
+    grid-column-gap: 30px;
+  }
+}
+
+@media screen and (min-width: 1200px) {
+  .jobs-container {
+    margin: 80px 165px 0;
+    display: -ms-grid;
+    display: grid;
+    -ms-grid-columns: (1fr)[3];
+        grid-template-columns: repeat(3, 1fr);
+    grid-row-gap: 65px;
+  }
+}
+/*# sourceMappingURL=JobsContainer.css.map */

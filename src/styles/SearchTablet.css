@@ -1,0 +1,200 @@
+.search-tablet-container {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 96px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  background-color: #ffffff;
+  margin: 0 39.5px;
+  border-radius: 15px;
+  -webkit-transition: ease-in 0.3s;
+  transition: ease-in 0.3s;
+  display: none;
+}
+
+.search-tablet-container-dark {
+  background-color: #19202d;
+}
+
+.input {
+  padding-left: 16px;
+  border: none;
+  outline: none;
+  font-family: "Poppins", sans-serif;
+  font-weight: 400;
+  color: #121721;
+  font-size: 14px;
+  -webkit-transition: ease-in 0.3s;
+  transition: ease-in 0.3s;
+}
+
+.input::-webkit-input-placeholder {
+  color: #6e8098;
+}
+
+.input:-ms-input-placeholder {
+  color: #6e8098;
+}
+
+.input::-ms-input-placeholder {
+  color: #6e8098;
+}
+
+.input::placeholder {
+  color: #6e8098;
+}
+
+.input-dark {
+  color: #ffffff;
+  background-color: #19202d;
+}
+
+.search-tablet {
+  border-right: 2px solid #f4f6f8;
+  padding: 28px 20px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-transition: ease-in 0.3s;
+  transition: ease-in 0.3s;
+}
+
+.search-tablet-dark {
+  border-right: 2px solid #121721;
+}
+
+.location-tablet {
+  padding: 28px 20px;
+  border-right: 2px solid #f4f6f8;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-transition: ease-in 0.3s;
+  transition: ease-in 0.3s;
+}
+
+.location-tablet-dark {
+  border-right: 2px solid #121721;
+}
+
+.checkbox-search-btn {
+  padding-left: 16px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.checkbox-search-btn .full-time-label {
+  margin: 0 20px 0 10px;
+  font-weight: 700;
+  color: #121721;
+  font-size: 14px;
+  -webkit-transition: ease-in 0.3s;
+  transition: ease-in 0.3s;
+}
+
+.checkbox-search-btn-dark .full-time-label {
+  color: #ffffff;
+}
+
+.only {
+  display: none;
+}
+
+.search-btn {
+  background-color: #5964e0;
+  border: none;
+  border-radius: 5px;
+  outline: none;
+  font-family: "Poppins", sans-serif;
+  font-style: 700;
+  font-size: 10px;
+  padding: 10px;
+  color: #ffffff;
+  -webkit-transition: ease-in 0.3s;
+  transition: ease-in 0.3s;
+}
+
+.search-btn:hover {
+  background-color: #939bf4;
+}
+
+@media screen and (min-width: 768px) {
+  .search-tablet-container {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+  }
+}
+
+@media screen and (min-width: 800px) {
+  .checkbox-search-btn {
+    padding-left: 24px;
+  }
+  .search-btn {
+    margin-left: 10px;
+    font-size: 14px;
+  }
+}
+
+@media screen and (min-width: 1200px) {
+  .search-tablet-container {
+    margin: 0 156px;
+  }
+  .search-tablet,
+  .location-tablet {
+    padding: 28px 30px;
+  }
+  .search-btn {
+    padding: 16px 35.5px;
+  }
+  .only {
+    display: inline-block;
+  }
+  .checkbox-search-btn {
+    padding-left: 40px;
+  }
+  .checkbox-search-btn label {
+    margin: 0 40px 0 20px;
+  }
+}
+/*# sourceMappingURL=SearchTablet.css.map */
