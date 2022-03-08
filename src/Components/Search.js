@@ -5,7 +5,6 @@ import "../styles/Search.css";
 //icons svg
 import { ReactComponent as FilterIcon } from "../assets/mobile/icon-filter.svg";
 import { ReactComponent as SearchIcon } from "../assets/desktop/icon-search-white.svg";
-import { ReactComponent as SearchIconTablet } from "../assets/desktop/icon-search.svg";
 import { ReactComponent as LocationIcon } from "../assets/desktop/icon-location.svg";
 
 function Search({ isDark, handleClick, handleChange }) {
