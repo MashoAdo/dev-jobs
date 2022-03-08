@@ -4,8 +4,10 @@ import "./styles/App.css";
 import Header from "./components/Header";
 import JobsContainer from "./components/JobsContainer";
 import LearnBtn from "./components/LearnBtn";
-// import Search from "./components/Search";
+import Search from "./components/Search";
 import SearchTablet from "./components/SearchTablet";
+
+import data from "./data.json";
 
 export const isDarkContext = React.createContext();
 
@@ -19,13 +21,13 @@ function App() {
 	return (
 		<div className={isDark ? "app dark" : "app"}>
 			<Header isDark={isDark} handleSetMode={setMode} />
-			{/* <Search isDark={isDark} /> */}
-			<SearchTablet />
+			<Search isDark={isDark} />
+			<SearchTablet isDark={isDark} />
 
-			{/* <isDarkContext.Provider value={isDark}>
-				<JobsContainer />
+			<isDarkContext.Provider value={isDark}>
+				<JobsContainer data={data} />
 			</isDarkContext.Provider>
-			<LearnBtn /> */}
+			<LearnBtn />
 		</div>
 	);
 }
