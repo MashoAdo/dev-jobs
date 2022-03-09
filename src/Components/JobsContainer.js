@@ -41,6 +41,7 @@ function JobsContainer({ data }) {
 	return (
 		<div className="jobs-container">
 			{data.map((jobItem) => {
+				// get logo
 				const UniqueLogo = logos[jobItem.id - 1];
 
 				return (
