@@ -26,6 +26,7 @@ function App() {
 		// get input value and convert to lowercase , necessary to comparison when filtering
 		var search = e.target.value.toLowerCase();
 		setSearchTerm(search);
+		console.log("handleChange func triggered")
 	};
 
 	// filters data using the search term and set the data to be mapped to UI
@@ -45,6 +46,8 @@ function App() {
 		});
 
 		setUiData(filteredData);
+		console.log("handleClick func triggered")
+
 	};
 
 	return (
