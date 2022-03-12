@@ -18,7 +18,7 @@ import { ReactComponent as Pomodoro } from "../assets/logos/pomodoro.svg";
 import { ReactComponent as Typemaster } from "../assets/logos/typemaster.svg";
 import { ReactComponent as Vector } from "../assets/logos/vector.svg";
 
-function JobsContainer({ data }) {
+function JobsContainer({ jobs }) {
 	const logos = [
 		Scoot,
 		Blogr,
@@ -37,23 +37,23 @@ function JobsContainer({ data }) {
 		Blogr,
 	];
 	const isDark = useContext(isDarkContext);
-
+	console.log(jobs);
 	return (
 		<div className="jobs-container">
-			{data.map((jobItem) => {
+			{jobs.map((jobItem, i) => {
 				// get each logo
 				const UniqueLogo = logos[jobItem.id - 1];
 
 				return (
 					<article
 						className={isDark ? "job-card job-card-dark" : "job-card"}
-						key={jobItem.id}
+						key={i}
 					>
 						<div
 							className="job-card-icon"
 							style={{ backgroundColor: jobItem.logoBackground }}
 						>
-							<UniqueLogo />
+							{/* <UniqueLogo /> */}
 						</div>
 
 						<div>
