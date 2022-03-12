@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 
 import "./styles/App.css";
 import Header from "./components/Header";
@@ -14,19 +14,21 @@ export const isDarkContext = React.createContext();
 function App() {
 	const [isDark, setIsDark] = useState(false);
 
-	const setMode = (e) => {
+	const setMode = () => {
 		setIsDark(!isDark);
 	};
 
-	// stores search term
+	// stores search term ,store data to be mapped to UI
 	const [searchTerm, setSearchTerm] = useState("");
-	const [uiData, setUiData] = useState(data);
+	const [uiData, setUiData] = useState([]);
+	const [loading, setLoading] = useState(true);
+	const [err, setErr] = useState(false);
 
 	const handleChange = (e) => {
 		// get input value and convert to lowercase , necessary to comparison when filtering
 		var search = e.target.value.toLowerCase();
 		setSearchTerm(search);
-		console.log("handleChange func triggered")
+		console.log("handleChange func triggered");
 	};
 
 	// filters data using the search term and set the data to be mapped to UI
@@ -46,9 +48,32 @@ function App() {
 		});
 
 		setUiData(filteredData);
-		console.log("handleClick func triggered")
-
+		console.log("handleClick func triggered");
 	};
+
+	// fetch Jobs from our API endpoint
+	useEffect(() => {
+		fetch("http://localhost:3501/jobs")
+			.then((response) => {
+				return response.json();
+			})
+			.then((jobs) => {
+				setUiData(jobs);
+				console.log(uiData);
+			})
+
+			.catch((err) => {
+				console.log(`${err} : ${err.message}`);
+				setErr(true);
+			})
+			.finally(() => {
+				setLoading(false);
+			});
+	}, []);
+
+	// console.log(uiData);
+	console.log(loading);
+	console.log(uiData);
 
 	return (
 		<div className={isDark ? "app dark" : "app"}>
@@ -59,10 +84,16 @@ function App() {
 				handleChange={handleChange}
 				handleClick={handleClick}
 			/>
-			<isDarkContext.Provider value={isDark}>
-				<JobsContainer data={uiData} />
-			</isDarkContext.Provider>
-			<LearnBtn />
+			{loading ? (
+				<h1>Loading...</h1>
+			) : (
+				<>
+					<isDarkContext.Provider value={isDark}>
+						<JobsContainer jobs={uiData} />
+					</isDarkContext.Provider>
+					<LearnBtn />
+				</>
+			)}
 		</div>
 	);
 }
