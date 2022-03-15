@@ -1,4 +1,11 @@
 import React, { useState, useEffect } from "react";
+import {
+	BrowserRouter as Router,
+	Switch,
+	Route,
+	Link,
+	Routes,
+} from "react-router-dom";
 
 import "./styles/App.css";
 import Header from "./components/Header";
@@ -6,12 +13,14 @@ import JobsContainer from "./components/JobsContainer";
 import LearnBtn from "./components/LearnBtn";
 import Search from "./components/Search";
 import SearchTablet from "./components/SearchTablet";
+import JobApplication from "./components/JobApplication";
 
-import data from "./data.json";
+// import data from "./data.json";
 
 export const isDarkContext = React.createContext();
 
 function App() {
+	// set mode to dark or light on change of radio buttons used on header component
 	const [isDark, setIsDark] = useState(false);
 
 	const setMode = () => {
@@ -25,19 +34,22 @@ function App() {
 	const [err, setErr] = useState(false);
 
 	const handleChange = (e) => {
-		// get input value and convert to lowercase , necessary to comparison when filtering
+		// get input value and convert to lowercase , necessary for comparison when filtering
 		var search = e.target.value.toLowerCase();
 		setSearchTerm(search);
-		console.log("handleChange func triggered");
 	};
 
+	let data;
+	console.log(searchTerm);
 	// filters data using the search term and set the data to be mapped to UI
 	const handleClick = () => {
-		if (searchTerm === "") {
-			setUiData(data);
+		let filteredData;
+		if (!searchTerm) {
+			filteredData = uiData;
+			console.log(filteredData);
+			console.log("search term empty");
 		}
-		console.log(searchTerm);
-		const filteredData = data.filter((item) => {
+		filteredData = uiData.filter((item) => {
 			return (
 				// convert object values to lowercase for comparison with searchTerm
 				item.company.toLowerCase().includes(searchTerm) ||
@@ -48,8 +60,9 @@ function App() {
 		});
 
 		setUiData(filteredData);
-		console.log("handleClick func triggered");
 	};
+
+	console.log(uiData);
 
 	// fetch Jobs from our API endpoint
 	useEffect(() => {
@@ -58,8 +71,8 @@ function App() {
 				return response.json();
 			})
 			.then((jobs) => {
+				data = jobs;
 				setUiData(jobs);
-				console.log(uiData);
 			})
 
 			.catch((err) => {
@@ -71,30 +84,49 @@ function App() {
 			});
 	}, []);
 
-	// console.log(uiData);
-	console.log(loading);
-	console.log(uiData);
+	// return id used to fetch data for a specific job
+	function getId(jobId) {
+		return jobId;
+	}
+
+	const id = getId();
+
+	console.log(getId);
+	err && <h1>An Error Occured Please Refresh...</h1>;
 
 	return (
-		<div className={isDark ? "app dark" : "app"}>
-			<Header isDark={isDark} handleSetMode={setMode} />
-			<Search isDark={isDark} />
-			<SearchTablet
-				isDark={isDark}
-				handleChange={handleChange}
-				handleClick={handleClick}
-			/>
-			{loading ? (
-				<h1>Loading...</h1>
-			) : (
-				<>
-					<isDarkContext.Provider value={isDark}>
-						<JobsContainer jobs={uiData} />
-					</isDarkContext.Provider>
-					<LearnBtn />
-				</>
-			)}
-		</div>
+		<Router>
+			<div className={isDark ? "app dark" : "app"}>
+				<Header isDark={isDark} handleSetMode={setMode} />
+				{/* <JobApplication /> */}
+
+				{loading ? (
+					<h1>Loading...</h1>
+				) : (
+					<Routes>
+						<Route
+							path="/"
+							element={
+								<>
+									<Search isDark={isDark} />
+									<SearchTablet
+										isDark={isDark}
+										handleChange={handleChange}
+										handleClick={handleClick}
+									/>
+									<isDarkContext.Provider value={isDark}>
+										<JobsContainer jobs={uiData} getJobId={getId} />
+									</isDarkContext.Provider>
+									<LearnBtn />
+								</>
+							}
+						></Route>
+
+						<Route path="/job/:id" element={<JobApplication />}></Route>
+					</Routes>
+				)}
+			</div>
+		</Router>
 	);
 }
 
