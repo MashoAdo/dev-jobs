@@ -1,11 +1,5 @@
 import React, { useState, useEffect } from "react";
-import {
-	BrowserRouter as Router,
-	Switch,
-	Route,
-	Link,
-	Routes,
-} from "react-router-dom";
+import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 
 import "./styles/App.css";
 import Header from "./components/Header";
@@ -39,16 +33,14 @@ function App() {
 		setSearchTerm(search);
 	};
 
-	let data;
-	console.log(searchTerm);
 	// filters data using the search term and set the data to be mapped to UI
 	const handleClick = () => {
 		let filteredData;
+		// if search term is empty show data that was fetched before
 		if (!searchTerm) {
 			filteredData = uiData;
-			console.log(filteredData);
-			console.log("search term empty");
 		}
+
 		filteredData = uiData.filter((item) => {
 			return (
 				// convert object values to lowercase for comparison with searchTerm
@@ -65,44 +57,35 @@ function App() {
 	console.log(uiData);
 
 	// fetch Jobs from our API endpoint
-	useEffect(() => {
-		fetch("http://localhost:3501/jobs")
-			.then((response) => {
-				return response.json();
-			})
-			.then((jobs) => {
-				data = jobs;
-				setUiData(jobs);
-			})
+	const fetchJobs = async () => {
+		try {
+			const response = await fetch("http://localhost:3501/jobs");
+			const jobs = await response.json();
 
-			.catch((err) => {
-				console.log(`${err} : ${err.message}`);
-				setErr(true);
-			})
-			.finally(() => {
-				setLoading(false);
-			});
+			setUiData(jobs);
+		} catch (error) {
+			console.log(error);
+			setErr(true);
+		} finally {
+			setLoading(false);
+		}
+	};
+
+	// fetch Jobs from our API endpoint
+	useEffect(() => {
+		fetchJobs();
 	}, []);
 
-	// return id used to fetch data for a specific job
-	function getId(jobId) {
-		return jobId;
-	}
-
-	const id = getId();
-
-	console.log(getId);
+	// if error occurs when rendering UI display this error message
 	err && <h1>An Error Occured Please Refresh...</h1>;
 
 	return (
 		<Router>
 			<div className={isDark ? "app dark" : "app"}>
 				<Header isDark={isDark} handleSetMode={setMode} />
-				{/* <JobApplication /> */}
 
-				{loading ? (
-					<h1>Loading...</h1>
-				) : (
+				{loading ? (<h1>Loading...</h1>) :
+				 (
 					<Routes>
 						<Route
 							path="/"
@@ -115,7 +98,7 @@ function App() {
 										handleClick={handleClick}
 									/>
 									<isDarkContext.Provider value={isDark}>
-										<JobsContainer jobs={uiData} getJobId={getId} />
+										<JobsContainer jobs={uiData} />
 									</isDarkContext.Provider>
 									<LearnBtn />
 								</>
