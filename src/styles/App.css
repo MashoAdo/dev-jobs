@@ -1,5 +1,4 @@
 .app {
-	/* height: 100%; */
 	overflow: hidden;
 	transition: all ease-in 0.3s;
 	background-color: #f4f6f8;
@@ -7,4 +6,8 @@
 
 .dark {
 	background-color: #121721;
+}
+
+a {
+	text-decoration: none;
 }
