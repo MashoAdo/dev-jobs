@@ -1,5 +1,5 @@
 import React, { useContext } from "react";
-import { Link, Router } from "react-router-dom";
+import { Link } from "react-router-dom";
 
 // styles
 import "../styles/JobsContainer.css";
@@ -20,7 +20,7 @@ import { ReactComponent as Pomodoro } from "../assets/logos/pomodoro.svg";
 import { ReactComponent as Typemaster } from "../assets/logos/typemaster.svg";
 import { ReactComponent as Vector } from "../assets/logos/vector.svg";
 
-function JobsContainer({ jobs, getJobId }) {
+function JobsContainer({ jobs }) {
 	const logos = [
 		Scoot,
 		Blogr,
@@ -40,31 +40,16 @@ function JobsContainer({ jobs, getJobId }) {
 	];
 	const isDark = useContext(isDarkContext);
 
-	//function that returns id of a job component, id will be used to fetch specific job in JobApplication component but first the id will be passed to the App component from there it will be passed to the jobApplication component.
-	const jobId = (id) => {
-		return id;
-	};
-
-	console.log(getJobId);
 	return (
 		<div className="jobs-container">
 			{jobs.map((jobItem, i) => {
-				// get each logo
-				const UniqueLogo = logos[jobItem.id - 1];
-
 				return (
-					<Link
-						to={`/job/${jobItem._id}`}
-						key={i}
-						onClick={getJobId("jobItem.id")}
-					>
+					<Link to={`/job/${jobItem._id}`} key={i}>
 						<div className={isDark ? "job-card job-card-dark" : "job-card"}>
 							<div
 								className="job-card-icon"
 								style={{ backgroundColor: jobItem.logoBackground }}
-							>
-								{/* <UniqueLogo /> */}
-							</div>
+							></div>
 
 							<div>
 								<div className="time-contract">
