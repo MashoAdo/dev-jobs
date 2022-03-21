@@ -73,7 +73,7 @@ function JobApplication({ isDark }) {
 						</a>
 					</header>
 
-					<main className={isDark && "main-dark"}>
+					<main className={isDark ? "main-dark" : undefined}>
 						<div className="job-info-apply">
 							<div>
 								<div className="time-contract">
@@ -118,7 +118,7 @@ function JobApplication({ isDark }) {
 							<p>{uiJob.requirements.content}</p>
 							<ul>
 								{uiJob.requirements.items.map((item, i) => {
-									return <li>{item}</li>;
+									return <li key={i}>{item}</li>;
 								})}
 							</ul>
 						</div>
@@ -128,7 +128,7 @@ function JobApplication({ isDark }) {
 							<p>{uiJob.role.content}</p>
 							<ol className="duties-ordered-list">
 								{uiJob.role.items.map((item, i) => {
-									return <li>{item}</li>;
+									return <li key={i}>{item}</li>;
 								})}
 							</ol>
 						</div>
