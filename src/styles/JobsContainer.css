@@ -7,11 +7,19 @@
 
 .job-card {
   background-color: #ffffff;
+  height: 100%;
   position: relative;
   padding: 49px 32px 32px;
   border-radius: 5px;
+  -webkit-box-shadow: 5px 5px 15px -10px rgba(0, 0, 0, 0.75);
+          box-shadow: 5px 5px 15px -10px rgba(0, 0, 0, 0.75);
   -webkit-transition: all ease-in 0.3s;
   transition: all ease-in 0.3s;
+}
+
+.job-card:hover {
+  -webkit-box-shadow: 5px 5px 30px -10px rgba(0, 0, 0, 0.75);
+          box-shadow: 5px 5px 30px -10px rgba(0, 0, 0, 0.75);
 }
 
 .job-card .job-title {
