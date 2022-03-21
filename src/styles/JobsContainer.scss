@@ -17,11 +17,16 @@ $very-dark-blue: #19202d; //search bar background dark mode, job card dark mode
 
 .job-card {
 	background-color: $white;
+	height: 100%;
 	position: relative;
 	padding: 49px 32px 32px;
 	border-radius: 5px;
+	box-shadow: 5px 5px 15px -10px rgba(0, 0, 0, 0.75);
 	transition: all ease-in 0.3s;
 
+	&:hover {
+		box-shadow: 5px 5px 30px -10px rgba(0, 0, 0, 0.75);
+	}
 	.job-title {
 		font-weight: 700;
 		font-size: 16px;
