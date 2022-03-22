@@ -1,5 +1,3 @@
-import React from "react";
-
 import { ReactComponent as Scoot } from "../assets/logos/scoot.svg";
 import { ReactComponent as Blogr } from "../assets/logos/blogr.svg";
 import { ReactComponent as Coffeeroasters } from "../assets/logos/coffeeroasters.svg";
