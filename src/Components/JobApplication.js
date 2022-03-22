@@ -3,6 +3,8 @@ import { useParams } from "react-router-dom";
 
 import "../styles/jobApplication.css";
 
+import getLogo from "../CustomHooks/getLogo";
+
 function JobApplication({ isDark }) {
 	const [uiJob, setUIJob] = useState({});
 	const [loading, setLoading] = useState(true);
@@ -10,9 +12,12 @@ function JobApplication({ isDark }) {
 	let { id } = useParams();
 
 	//fetch a single job using id parameter
+	const controller = new AbortController();
 	const fetchIndividualJob = async () => {
 		try {
-			const response = await fetch(`http://localhost:3501/job/${id}`);
+			const response = await fetch(`http://localhost:3501/job/${id}`, {
+				signal: controller.signal,
+			});
 			const job = await response.json();
 
 			setUIJob(job);
@@ -26,10 +31,16 @@ function JobApplication({ isDark }) {
 	// fetch function is carried after components has mounted, id is used as a dependance value in order to refecth a different job based on the id
 	useEffect(() => {
 		fetchIndividualJob();
+
+		return () => {
+			controller.abort();
+		};
 	}, [id]);
 
+	// get logo based on each job's id
+	const Logo = getLogo(uiJob.id - 1);
 	return (
-		<div>
+		<>
 			{loading ? (
 				<h1>Loading...</h1>
 			) : (
@@ -41,7 +52,12 @@ function JobApplication({ isDark }) {
 								: "job-application-header"
 						}
 					>
-						<div className="icon"></div>
+						<div
+							className="icon-wrapper"
+							style={{ backgroundColor: `${uiJob.logoBackground}` }}
+						>
+							<Logo className="job-icon" />
+						</div>
 
 						<div
 							className={
@@ -155,7 +171,7 @@ function JobApplication({ isDark }) {
 					</div>
 				</div>
 			)}
-		</div>
+		</>
 	);
 }
 
