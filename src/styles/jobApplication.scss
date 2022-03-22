@@ -18,20 +18,12 @@ $dark-gray: #6e8098; //button dark mode
 // transition
 $transition: all ease-in 0.3s;
 
-// header
-.icon {
-	height: 50px;
-	width: 50px;
-	background-color: yellow;
-	position: relative;
-	top: -25px;
-}
-
 .job-application-header {
 	position: absolute;
 	left: 0;
 	right: 0;
 	top: 96px;
+	height: 140px;
 	background-color: $white;
 	border-radius: 5px;
 	margin: 0 24px;
@@ -43,6 +35,16 @@ $transition: all ease-in 0.3s;
 // dark
 .job-application-header-dark {
 	background-color: $very-dark-blue;
+}
+
+// header
+.icon-wrapper {
+	position: relative;
+	display: flex;
+	align-items: center;
+	align-items: center;
+	justify-content: center;
+	top: -25px;
 }
 
 .company-info {
@@ -73,7 +75,6 @@ $transition: all ease-in 0.3s;
 	margin-bottom: 32px;
 	padding: 16px 20px;
 	background-color: #e3e6ff;
-
 	font-size: 700;
 	color: $violet;
 	border-radius: 5px;
@@ -162,7 +163,6 @@ main {
 	font-size: 14px;
 	line-height: 26px;
 	color: $dark-gray;
-
 	margin-bottom: 40px;
 }
 
@@ -218,7 +218,6 @@ main {
 }
 
 // footer
-
 .footer {
 	background-color: $white;
 	padding: 24px;
@@ -252,14 +251,13 @@ main {
 }
 
 @media screen and (min-width: 700px) {
-	// header
-	.icon {
-		top: 0;
-		bottom: 0;
-		left: 0;
-		height: 140px;
+	.icon-wrapper {
+		position: static;
+		height: 100%;
 		width: 140px;
 	}
+	// header
+
 	.job-application-header {
 		margin: 0 40px;
 		@include flexDirection(row, inherit, center);
