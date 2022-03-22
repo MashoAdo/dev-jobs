@@ -25,7 +25,6 @@ function App() {
 	const [searchTerm, setSearchTerm] = useState("");
 	const [uiData, setUiData] = useState([]);
 	const [loading, setLoading] = useState(true);
-	const [err, setErr] = useState(false);
 
 	const handleChange = (e) => {
 		// get input value and convert to lowercase , necessary for comparison when filtering
@@ -40,7 +39,6 @@ function App() {
 		if (!searchTerm) {
 			filteredData = uiData;
 		}
-
 		filteredData = uiData.filter((item) => {
 			return (
 				// convert object values to lowercase for comparison with searchTerm
@@ -54,8 +52,6 @@ function App() {
 		setUiData(filteredData);
 	};
 
-	console.log(uiData);
-
 	// fetch Jobs from our API endpoint
 	const fetchJobs = async () => {
 		try {
@@ -65,7 +61,6 @@ function App() {
 			setUiData(jobs);
 		} catch (error) {
 			console.log(error);
-			setErr(true);
 		} finally {
 			setLoading(false);
 		}
@@ -76,16 +71,16 @@ function App() {
 		fetchJobs();
 	}, []);
 
-	// if error occurs when rendering UI display this error message
-	err && <h1>An Error Occured Please Refresh...</h1>;
+	console.log(uiData);
 
 	return (
 		<Router>
 			<div className={isDark ? "app dark" : "app"}>
 				<Header isDark={isDark} handleSetMode={setMode} />
 
-				{loading ? (<h1>Loading...</h1>) :
-				 (
+				{loading ? (
+					<h1>Loading...</h1>
+				) : (
 					<Routes>
 						<Route
 							path="/"
@@ -105,7 +100,10 @@ function App() {
 							}
 						></Route>
 
-						<Route path="/job/:id" element={<JobApplication />}></Route>
+						<Route
+							path="/job/:id"
+							element={<JobApplication isDark={isDark} />}
+						></Route>
 					</Routes>
 				)}
 			</div>
