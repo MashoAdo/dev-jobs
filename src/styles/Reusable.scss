@@ -1,0 +1,19 @@
+//Colors
+$violet: #5964e0; //counry, button, radio
+$light-violet: #939bf4; //button/radios hovers
+$very-dark-blue: #19202d; //search bar background dark mode, job card dark mode
+$midnight: #121721; //body dark mode
+$white: #ffffff; // job card light mode,search bar background light mode
+$light-gray: #f4f6f8; // body light mode
+$gray: #9daec2; //time, contract, company , button light mode, button hover dark mode
+$dark-gray: #6e8098; //button dark mode
+
+@mixin flexDirection($direction, $justify, $align) {
+	display: flex;
+	flex-direction: $direction;
+	justify-content: $justify;
+	align-items: $align;
+}
+
+// transition
+$transition: all ease-in 0.3s;
